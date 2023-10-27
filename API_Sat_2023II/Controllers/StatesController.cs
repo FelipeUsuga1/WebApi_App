@@ -40,7 +40,7 @@ namespace API_Sat_2023II.Controllers
             {
                 if (ex.Message.Contains("duplicate"))
                 {
-                    return Conflict(String.Format("El país {0} ya existe.", state.Name));
+                    return Conflict(String.Format("El estado {0} ya existe.", state.Name));
                 }
 
                 return Conflict(ex.Message);
@@ -86,7 +86,7 @@ namespace API_Sat_2023II.Controllers
 
             var deletedState = await _stateService.DeleteStateAsync(id);
 
-            if (deletedState == null) return NotFound("País no encontrado!");
+            if (deletedState == null) return NotFound("Estado no encontrado!");
 
             return Ok(deletedState);
         }
